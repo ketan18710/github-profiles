@@ -65,12 +65,12 @@ const reducer = (state=initState,action) =>{
                 }
 
             case "FETCH_USER":
-                console.log(action.userData)
+                //console.log(action.userData)
                 return{
                     ...state,
                     userName       :    action.userData.name,
                     userLogin      :    action.userData.login,
-                    userRepos_url  :    action.userData.repos_url,
+                    userRepos_url  :    action.userData.public_repos,
                     userAvatar     :    action.userData.avatar_url,
                     userFollowers  :    action.userData.followers,
                     userFollowing  :    action.userData.following,
@@ -82,7 +82,7 @@ const reducer = (state=initState,action) =>{
 
                 }
             case "FETCH_USER_REPOS":
-                console.log("show repos",action.Repos)
+                //console.log("show repos",action.Repos)
                 return {
                     ...state,
                     userRepos : action.Repos,
