@@ -65,7 +65,7 @@ const reducer = (state=initState,action) =>{
                 }
 
             case "FETCH_USER":
-                
+                console.log(action.userData)
                 return{
                     ...state,
                     userName       :    action.userData.name,

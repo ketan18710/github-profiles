@@ -6,10 +6,8 @@ function Users(props) {
     console.log(props,'props')
     const [username, setUsername] = useState([])
     const [avatar, setAvatar] = useState([])
-    const [id, setId] = useState([])
     useEffect(() => {
         setAvatar(props.users_avatar)
-        setId(props.id)
         setUsername(props.usernames)
     }, [props])
     function show_users(){

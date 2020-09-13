@@ -27,15 +27,13 @@ export const getUserData = (e,username) => {
     }
 
 }
-export const fetchUserData =(e,login) =>{
-    e.persist();
+export const fetchUserData =(login) =>{
     return dispatch => {
         axios.get(`https://api.github.com/users/${login}`)
         .then((response) => {
             const userData = response.data;
             dispatch({
                 type : "FETCH_USER",
-                e,
                 userData
 
             })
@@ -45,8 +43,7 @@ export const fetchUserData =(e,login) =>{
     }
 
 }
-export const getUserRepos = (e,login) =>{
-    e.persist();
+export const getUserRepos = (login) =>{
     return dispatch => {
         axios.get(`https://api.github.com/users/${login}/repos`)
         .then((response)=>{
@@ -54,7 +51,6 @@ export const getUserRepos = (e,login) =>{
             const Repos = response.data;
             dispatch({
                 type : "FETCH_USER_REPOS",
-                e,
                 Repos,
 
             })
