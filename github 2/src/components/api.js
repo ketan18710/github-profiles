@@ -11,38 +11,44 @@ import { AddHeader } from './header/Header'
 function Api(props) {
     const [inputText,setInputText] = useState('');
     const [submitClicked, setSubmitClicked] = useState(false)
-    const inputRef = useRef(0)
+    
     useEffect(()=>{
+        if(localStorage.getItem("userData")!==props)
+        {
+           const userData = localStorage.getItem("userData") 
+            setInputText(userData)
+        }
+        else{
+            props.getUserData();
+        }
         
-    })
+        setSubmitClicked(true)
+    },[])
+
+    setTimeout(()=>{
+        console.log("userData",props.usernames)
+        localStorage.setItem("userData",JSON.stringify(props))
+        const data = localStorage.getItem("userData")
+        console.log(data)
+    },1000)
+   
     const handleUserName =(e)=> {
-        //props.changeUsername(e)
-        setInputText(e.target.value)
-        console.log(inputRef.current.value)
+        
+        
         
     };
     const handleSubmit = (e) => {
-        console.log('x')
-        props.getUserData(e,inputText);
-        setInputText(inputText)
-        console.log(submitClicked,'prev')
-        setSubmitClicked(true)
-        console.log(submitClicked,'after')
+        
+        
+        
     }
 
-    // const handlePage = (e) => {
-    //     props.fetchUserData(e,e.target.innerText)
-    //     console.log(e.target.innerText)
-    // }
-    // if(props.grabbedUserData === true){
-            
-    //     return <ShowProfiles/>;
-    // }
 
-     console.log(props.paylaod)
+
+     
     const  {grabbedData} = props 
     
-    //const listOfUsers = username.map((item)=><li>{item}</li>)
+   
     return (
         
         <div>
@@ -73,9 +79,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return{
-        changeUsername: e => dispatch(actionCreater.changeUsername(e)), 
-        getUserData:(e, username)=>dispatch(actionCreater.getUserData(e,username)),
-        fetchUserData:(e, login)=>dispatch(actionCreater.fetchUserData(e,login))
+        //changeUsername: e => dispatch(actionCreater.changeUsername(e)), 
+        getUserData:( )=>dispatch(actionCreater.getUserData()),
+        fetchUserData:( login)=>dispatch(actionCreater.fetchUserData(login))
     }  
     
 }
