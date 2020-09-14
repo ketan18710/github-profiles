@@ -34,38 +34,43 @@ const reducer = (state=initState,action) =>{
                 usernames :currentUsername
              } 
         case "SUBMIT":
-            console.log(action.data)
-            const usersLogin=action.data.items.map((items)=>items.login)
-            const usersRepos=action.data.items.map((items)=>items.repos_url)
-            const usersAvatar=action.data.items.map((items)=>items.avatar_url)
-            const usersFollowers=action.data.items.map((items)=>items.followers_url)
-            const usersId=action.data.items.map((items)=>items.id)
-            
-            if(action.data.total_count !== 0){
-                return{
-                ...state,
-                payload : "",
-                usernames : usersLogin,
-                repos : usersRepos,
-                id : usersId,
-                followers : usersFollowers,
-                users_avatar : usersAvatar,
-                grabbedData : true
+            // if(action.data.items == localStorage.getItem("userData"))
+            //     {
+            //         console.log("hi guys")
+            //     }
+            //     else{
+                const usersLogin=action.data.items.map((items)=>items.login)
+                const usersRepos=action.data.items.map((items)=>items.repos_url)
+                const usersAvatar=action.data.items.map((items)=>items.avatar_url)
+                const usersFollowers=action.data.items.map((items)=>items.followers_url)
+                const usersId=action.data.items.map((items)=>items.id)
+                
+                if(action.data.total_count !== 0){
+                    return{
+                    ...state,
+                    payload : "",
+                    usernames : usersLogin,
+                    repos : usersRepos,
+                    id : usersId,
+                    followers : usersFollowers,
+                    users_avatar : usersAvatar,
+                    grabbedData : true
 
-                }
-            }else{
-                    return {
-                        ...state,
-                        message : "user not found",
-                        usernames : [],
-                        repos : [],
-                        id : [],
-                        followers : [],
-                        users_avatar : [],
-                        grabbedData : false
                     }
+                }else{
+                        return {
+                            ...state,
+                            message : "user not found",
+                            usernames : [],
+                            repos : [],
+                            id : [],
+                            followers : [],
+                            users_avatar : [],
+                            grabbedData : false
+                        }
 
-                }
+                    }
+                   
 
             case "FETCH_USER":
                 //console.log(action.userData)

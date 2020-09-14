@@ -12,35 +12,28 @@ function Api(props) {
     const [inputText,setInputText] = useState('');
     const [submitClicked, setSubmitClicked] = useState(false)
     
-    useEffect(()=>{
-        if(localStorage.getItem("userData")!==props)
-        {
-           const userData = localStorage.getItem("userData") 
-            setInputText(userData)
-        }
-        else{
-            props.getUserData();
-        }
+    useEffect(()=>{       
+        props.getUserData();
         
         setSubmitClicked(true)
     },[])
 
-    setTimeout(()=>{
-        console.log("userData",props.usernames)
-        localStorage.setItem("userData",JSON.stringify(props))
-        const data = localStorage.getItem("userData")
-        console.log(data)
-    },1000)
+//     setTimeout(()=>{
+//         console.log("userData",props)
+// //localStorage.setItem("userData",JSON.stringify(props))
+//         const data = localStorage.getItem("userData")
+//         console.log(data)
+//     },1000)
    
     const handleUserName =(e)=> {
-        
+        setInputText(e.target.value)
         
         
     };
     const handleSubmit = (e) => {
         
         
-        
+       
     }
 
 
