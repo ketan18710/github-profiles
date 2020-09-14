@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import Api from './components/api'
 import Users from './components/users/Users'
 import ShowProfiles from './components/ShowProfiles'
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import {
   BrowserRouter as Router,
   Switch,

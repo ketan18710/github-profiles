@@ -21,7 +21,7 @@ function Users(props) {
     function show_users(){
         var rows=[]
         for(var i =0;i<username.length;){
-            if(i%3==0){     
+            if(i%3===0){     
             var row = <Grid.Row>
                     {(i<username.length) && row__column({username: username[i],image: avatar[i]})}
                     {(i+1<username.length) && row__column({username: username[i+1],image: avatar[i+1]})}
