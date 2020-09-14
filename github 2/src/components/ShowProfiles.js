@@ -27,7 +27,7 @@ const ShowProfiles = (props) => {
         
 
     }
-    console.log(favoriteUser)
+    console.log("congrats you are added as a favorite",props)
     const repos = props.userRepos
     const listRepos = repos.length !==0 && (repos.map((item)=><li key={item.id}>{item.name}</li>) )
 
@@ -57,7 +57,7 @@ const mapStateToProps = (state) =>{
         userRepos : state.userRepos,
         userAvatar:state.userAvatar,
         userFollowers:state.userFollowers,
-        userFavorite:state.userFavorite,
+        FavoriteUsers:state.FavoriteUsers,
         userGithub : state.userGithub,
         userBlog : state.userBlog,
         userBio:state.userBio,
