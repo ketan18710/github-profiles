@@ -137,20 +137,18 @@ const reducer = (state=initState,action) =>{
                     message : ""
                 }
             case "ADD_FAVORITE_USER" :
-                console.log("user added as a favorite",action.username)
+                
                 var favoriteUsers = state.FavoriteUsers
                 favoriteUsers[action.username] = action.user
-                console.log(favoriteUsers,'favouriteUSerssss')
+                
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers
                 }
             case "REMOVE_FAVORITE_USER" :
-                console.log("user to be reomved",action.username)
-                console.log('state.FavoriteUsers_remove',state.FavoriteUsers)
+                
                 favoriteUsers = state.FavoriteUsers
                 delete favoriteUsers[action.username]
-                console.log(favoriteUsers,'favouriteUserzzz')
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers

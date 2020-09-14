@@ -31,8 +31,9 @@ function ProfileInfo(props) {
             setStar_profile(false)
         }
     }, [])
-    var {FavoriteUsers} = props.FavoriteUsers
+    var FavoriteUsers = props.FavoriteUsers
     console.log(FavoriteUsers,'fav_users')
+    sessionStorage.setItem("favorite users",JSON.stringify(FavoriteUsers))
     return (
         <div className="profileInfo">
             <Card>
@@ -45,7 +46,7 @@ function ProfileInfo(props) {
                 <Card.Description>
                     {props.bio ? props.bio : 'User has not written a bio'}
                     <div className="profileInfo__Icons">
-                        {star_profile ? <Icon className="profile_star" onClick={starClick} name="star "/> : <Icon className="profile_star" onClick={starClick} name="star outline"/>}
+                        {star_profile ==false ? <Icon className="profile_star" onClick={starClick} name="star outline"/> : <Icon className="profile_star" onClick={starClick} name="star "/>}
                         <Grid columns='equal'>
 
                             <Grid.Column width={3}>
