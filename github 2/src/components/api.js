@@ -5,7 +5,9 @@ import { Item } from 'semantic-ui-react';
 import * as actionCreater from '../store/actions/action'
 import { ShowProfiles } from './ShowProfiles';
 import Users from './users/Users'
-const ShowContext = createContext()
+import { AddHeader } from './header/Header'
+
+
 function Api(props) {
     const [inputText,setInputText] = useState('');
     const [submitClicked, setSubmitClicked] = useState(false)
@@ -44,11 +46,12 @@ function Api(props) {
     return (
         
         <div>
-            <ShowContext.Provider value={inputText}/>
+           
+            <AddHeader inputText={inputText} handleUserName={handleUserName} handleSubmit={handleSubmit}/>
             <h3>{props.payload}</h3>
-            <input ref={inputRef} type ="text" placeholder="enter github username"  onChange={handleUserName}/>
+            {/* <input ref={inputRef} type ="text" placeholder="enter github username"  onChange={handleUserName}/>
             <br/>
-            <button type="submit" onClick={handleSubmit}>search</button>
+            <button type="submit" onClick={handleSubmit}>search</button> */}
             
             <h3>{props.message}</h3>
             {/* <h3>{usernames.length ===30 ? usernames.map((item,i)=><li ref={inputRef} onClick={handlePage} key={i}>{item}</li> ): null }</h3> */}
@@ -81,4 +84,3 @@ const mapDispatchToProps = dispatch => {
     
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Api);
-export {ShowContext}
