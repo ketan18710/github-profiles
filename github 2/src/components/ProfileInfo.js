@@ -7,9 +7,9 @@ import * as actionCreater from '../store/actions/action'
 function ProfileInfo(props) {
     const [star_profile, setStar_profile] = useState(false)
     function starClick(){
-        if(star_profile){
+        if(!star_profile){
             var data = {
-                name : props.name,
+                name : props.name ? props.name : 'Name not Specified',
                 profile_url : props.profile_url,
                 avatar: props.img,
                 username: props.username
@@ -22,14 +22,17 @@ function ProfileInfo(props) {
     }
     useEffect(() => {
         var favouriteUser = props.FavoriteUsers 
+        console.log(favouriteUser,'here1')
         if(favouriteUser.hasOwnProperty(props.username)){
+            console.log(favouriteUser,'here2')
             setStar_profile(true)
         }else{
+            console.log(favouriteUser,'here3')
             setStar_profile(false)
         }
     }, [])
     var {FavoriteUsers} = props.FavoriteUsers
-    console.log(FavoriteUsers)
+    console.log(FavoriteUsers,'fav_users')
     return (
         <div className="profileInfo">
             <Card>
@@ -42,7 +45,7 @@ function ProfileInfo(props) {
                 <Card.Description>
                     {props.bio ? props.bio : 'User has not written a bio'}
                     <div className="profileInfo__Icons">
-                        {star_profile ? <Icon className="profile_star" onClick={starClick} name="star outline"/> : <Icon className="profile_star" onClick={starClick} name="star"/>}
+                        {star_profile ? <Icon className="profile_star" onClick={starClick} name="star "/> : <Icon className="profile_star" onClick={starClick} name="star outline"/>}
                         <Grid columns='equal'>
 
                             <Grid.Column width={3}>
@@ -80,6 +83,7 @@ function ProfileInfo(props) {
 const mapStateToProps = state => {
     return{
         FavoriteUsers : state.FavoriteUsers,
+        profile_url : state.userGithub
     }
 };
 

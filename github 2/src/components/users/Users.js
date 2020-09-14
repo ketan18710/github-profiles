@@ -11,6 +11,7 @@ function Users(props) {
         setAvatar(props.users_avatar)
         setUsername(props.usernames)
     }, [props])
+
     function show_users(){
         var rows=[]
         for(var i =0;i<username.length;){
@@ -38,5 +39,19 @@ function Users(props) {
         </div>
     )
 }
+const mapStateToProps = state => {
+    return{
+        usernames : state.usernames,
+        id : state.id,
+        users_avatar:state.users_avatar,
+        payload : state.payload
+    }
+};
+const mapDispatchToProps = dispatch => {
+    return{
+      
+    }  
+    
+}
 
-export default Users;
+export default connect(mapStateToProps,mapDispatchToProps)(Users);

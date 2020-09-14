@@ -74,7 +74,7 @@ const ShowProfiles = (props) => {
     return (
         <div className="showProfile">
             <ProfileInfo name={props.name}  followers={props.userFollowers} following={props.userFollowing} username={props.userLogin} img={props.userAvatar} bio={props.userBio}/>
-            <Grid columns={3} divided>
+            <Grid columns={3} divided>  
                 {show_repos()}
             </Grid>
             {/* <h3>{Repos.length >= 1 ? Repos.map((item,i)=><li key={item.indexOf(i)}>{item.name}</li> ): null }</h3> */}
