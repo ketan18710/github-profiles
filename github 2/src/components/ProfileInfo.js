@@ -47,6 +47,7 @@ function ProfileInfo(props) {
                     {props.bio ? props.bio : 'User has not written a bio'}
                     <div className="profileInfo__Icons">
                         {star_profile ==false ? <Icon className="profile_star" onClick={starClick} name="star outline"/> : <Icon className="profile_star" onClick={starClick} name="star "/>}
+                        <h4>Total Repos : {props.userRepos} </h4>
                         <Grid columns='equal'>
 
                             <Grid.Column width={3}>
