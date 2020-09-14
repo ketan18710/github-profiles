@@ -10,10 +10,12 @@ function User(props) {
                     <Card.Content>
                         <Feed>
                             <Feed.Event>
+                            
                             <Feed.Label className="user__image" image={props.image} />
                             <Feed.Content>
                                 <Feed.Summary>
                                     <h5>{props.username}</h5>
+                                    
                                 </Feed.Summary>
                             </Feed.Content>
                             </Feed.Event>
@@ -21,6 +23,7 @@ function User(props) {
                     </Card.Content>
                 </Card>
             </Link>
+            
         </div>
     )
 }

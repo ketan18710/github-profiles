@@ -11,7 +11,7 @@ const initState ={
     userRepos_url:"",
     userAvatar:"",
     userFollowers:"",
-    userFavorite:"",
+    FavoriteUsers:[],
     userGithub : "",
     userRepos : [],
     userBlog : "",
@@ -19,7 +19,9 @@ const initState ={
     userFollowing:"",
     grabbedUserData: false,
     message : "",
-    grabbedData : false
+    grabbedData : false,
+    payload : "",
+    
 }
 console.log(initState)
 const reducer = (state=initState,action) =>{
@@ -42,6 +44,7 @@ const reducer = (state=initState,action) =>{
             if(action.data.total_count !== 0){
                 return{
                 ...state,
+                payload : "",
                 usernames : usersLogin,
                 repos : usersRepos,
                 id : usersId,
@@ -68,6 +71,7 @@ const reducer = (state=initState,action) =>{
                 //console.log(action.userData)
                 return{
                     ...state,
+                    payload : "",
                     userName       :    action.userData.name,
                     userLogin      :    action.userData.login,
                     userRepos_url  :    action.userData.public_repos,
@@ -86,8 +90,27 @@ const reducer = (state=initState,action) =>{
                 return {
                     ...state,
                     userRepos : action.Repos,
+                    payload : ""
 
                 };
+            case "FETCHING_DATA":
+                console.log(action.payload)
+                return{
+                    ...state,payload:action.payload,
+                    message : ""
+                }
+            case "ADD_FAVORITE_USER" :
+                console.log("user added as a favorite")
+                return{
+                    ...state,
+                    FavoriteUser : action.data
+                }
+            case "REMOVE_FAVORITE_USER" :
+                console.log("user added as a favorite")
+                return{
+                    ...state,
+                    FavoriteUser : action.username
+                }
         default:
             return state;
     }
