@@ -16,13 +16,13 @@ function Api(props) {
         
     })
     const handleUserName =(e)=> {
-        //props.changeUsername(e)
+        // props.changeUsername(e)
         setInputText(e.target.value)
         console.log(inputRef.current.value)
         
     };
     const handleSubmit = (e) => {
-        console.log('x')
+        console.log('x',inputText)
         props.getUserData(e,inputText);
         setInputText(inputText)
         console.log(submitClicked,'prev')
