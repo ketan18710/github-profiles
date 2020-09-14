@@ -5,8 +5,9 @@ import './User.scss'
 function User(props) {
     return (
         <div className="user">
-            <Link to={'/profile?username='+props.username}>
+            
                 <Card>
+                <Link to={'/profile?username='+props.username}>
                     <Card.Content>
                         <Feed>
                             <Feed.Event>
@@ -22,8 +23,9 @@ function User(props) {
                             </Feed.Event>
                         </Feed>
                     </Card.Content>
+                    </Link>
                 </Card>
-            </Link>
+            
             
         </div>
     )

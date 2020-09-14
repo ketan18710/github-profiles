@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import { Card,Icon ,Image } from 'semantic-ui-react'
-import './ProfileInfo.css'
+import './ProfileInfo.scss'
 import { Grid, Segment } from 'semantic-ui-react'
 function ProfileInfo(props) {
     const [star_profile, setStar_profile] = useState(false)
