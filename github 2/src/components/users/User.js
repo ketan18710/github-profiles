@@ -16,6 +16,7 @@ function User(props) {
                                 <Feed.Summary>
                                     <h5>{props.username}</h5>
                                     
+                                    
                                 </Feed.Summary>
                             </Feed.Content>
                             </Feed.Event>
