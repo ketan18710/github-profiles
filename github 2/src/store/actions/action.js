@@ -8,18 +8,18 @@ export const changeUsername = e => {
     }
 }
 
-export const getUserData = (e,username) => {
-    e.persist();
+export const getUserData = () => {
+    //e.persist();
     return async dispatch => {
         dispatch({type:"FETCHING_DATA",payload:"fetching........"})
         try{
-            console.log(username)
-            const resp = await fetch(`https://api.github.com/search/users?q=${username}+in:login&sort=repositories&order=desc`);
+            //console.log(username)
+            const resp = await fetch(`https://api.github.com/search/users?q=type%3Auser&sort=repositories&order=desc&per_page=50`);
             const data = await resp.json();
             
             dispatch({
                 type : "SUBMIT",
-                e : e,
+               
                 data
             })
         }catch(er){
