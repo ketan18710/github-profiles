@@ -71,7 +71,39 @@ const reducer = (state=initState,action) =>{
 
                     }
                    
+            case "SEARCH_DATA":
+           
+                const searchLogin=action.userData.items.map((items)=>items.login)
+                const searchRepos=action.userData.items.map((items)=>items.repos_url)
+                const searchAvatar=action.userData.items.map((items)=>items.avatar_url)
+                const searchFollowers=action.userData.items.map((items)=>items.followers_url)
+                const searchId=action.userData.items.map((items)=>items.id)
+                
+                if(action.data.total_count !== 0){
+                    return{
+                    ...state,
+                    payload : "",
+                    usernames : searchLogin,
+                    repos : searchRepos,
+                    id : searchId,
+                    followers : searchFollowers,
+                    users_avatar : searchAvatar,
+                    grabbedData : true
 
+                    }
+                }else{
+                        return {
+                            ...state,
+                            message : "user not found",
+                            usernames : [],
+                            repos : [],
+                            id : [],
+                            followers : [],
+                            users_avatar : [],
+                            grabbedData : false
+                        }
+
+                    }
             case "FETCH_USER":
                 //console.log(action.userData)
                 return{

@@ -27,12 +27,13 @@ function Api(props) {
    
     const handleUserName =(e)=> {
         setInputText(e.target.value)
-        
+        props.personalUserData(inputText)
         
     };
     const handleSubmit = (e) => {
         
-        
+        setInputText(e.target.value)
+        props.personalUserData(inputText)
        
     }
 
@@ -74,7 +75,8 @@ const mapDispatchToProps = dispatch => {
     return{
         //changeUsername: e => dispatch(actionCreater.changeUsername(e)), 
         getUserData:( )=>dispatch(actionCreater.getUserData()),
-        fetchUserData:( login)=>dispatch(actionCreater.fetchUserData(login))
+        fetchUserData:( login)=>dispatch(actionCreater.fetchUserData(login)),
+        personalUserData:(login) => dispatch(actionCreater.personalUserData(login)) 
     }  
     
 }
