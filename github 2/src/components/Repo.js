@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useState} from 'react'
 import { Card ,Icon} from 'semantic-ui-react'
 import copy from "copy-to-clipboard";
 import './Repo.scss'
@@ -7,19 +7,14 @@ function Repo(props) {
     function handleCopy() {
         var text = props.repo_clone_url
         copy(text.toString());
+        console.log('iscopied_prev',isCopied)
         setCopied(true);
+        console.log('iscopied_after',isCopied)
+        setTimeout(()=>{
+            setCopied(false)
+            console.log('iscopied_clear',isCopied)
+        },4000)
     }
-    useEffect(() => {
-        let timeout;
-        let resetInterval = props.resetInterval
-        if (isCopied && resetInterval) {
-          timeout = setTimeout(() => setCopied(!isCopied), resetInterval);
-        }
-        return () => {
-          clearTimeout(timeout);
-        };
-      }, [isCopied, props.resetInterval]);
-    
     return (
         <div className="repo">
             <Card >
@@ -30,7 +25,7 @@ function Repo(props) {
                             <Icon name="fork"/> {props.forks_count}   Forks
                         </span>
                         <span onClick={() => handleCopy()}>
-                            {isCopied ? <Icon name="clipboard check"/> :  <Icon name="clipboard"/>}
+                            {isCopied === false ? <p><Icon name="clipboard"/> Click to copy repository clone link</p> : <p><Icon name="clipboard check"/>Copied to clipboard</p>}
                         </span>
                     </Card.Meta>
                     <Card.Description>
