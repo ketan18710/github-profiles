@@ -9,7 +9,7 @@ import { AddHeader } from './header/Header'
 
 
 function Api(props) {
-    const [inputText,setInputText] = useState('');
+   
     const [submitClicked, setSubmitClicked] = useState(false)
     
     useEffect(()=>{       
@@ -25,17 +25,7 @@ function Api(props) {
 //         console.log(data)
 //     },1000)
    
-    const handleUserName =(e)=> {
-        setInputText(e.target.value)
-        props.personalUserData(inputText)
-        
-    };
-    const handleSubmit = (e) => {
-        
-        setInputText(e.target.value)
-        props.personalUserData(inputText)
-       
-    }
+
 
 
 
@@ -48,8 +38,8 @@ function Api(props) {
         
         <div>
            
-            <AddHeader inputText={inputText} handleUserName={handleUserName} handleSubmit={handleSubmit}/>
-            <h3>{props.payload}</h3>
+            
+            <h3 style={{paddingLeft:"20em",fontFamily:"sans-serif",fontSize:"30px",color:"blueviolet"}}>{(props.message=="")&&props.payload}</h3>
             <h3>{props.message}</h3>
             
             {(submitClicked && grabbedData ) && <Users />}

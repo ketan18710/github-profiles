@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.scss';
 import 'semantic-ui-css/semantic.min.css';
-import Api from './components/api'
+import Api from './components/api';
+import {AddHeader} from './components/header/Header'
 import Users from './components/users/Users'
 import ShowProfiles from './components/ShowProfiles'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
+            <AddHeader/>
             <Api/>
           </Route>
           <Route path="/profile">

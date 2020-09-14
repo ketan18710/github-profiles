@@ -3,7 +3,7 @@ import { Header,Menu } from 'semantic-ui-react'
 import './Header.scss';
 import SearchBar from '../SearchBar/SearchBar';
 
-export const AddHeader = (props) => {
+export const AddHeader = () => {
     
 
     return (
@@ -19,7 +19,7 @@ export const AddHeader = (props) => {
         </Menu.Item>
         
         <Menu.Item>
-               <SearchBar inputText={props.inputText} handleName={props.handleUserName} handleSubmit={props.handleSubmit} />             
+               <SearchBar/>             
         </Menu.Item>
 
       </Menu>

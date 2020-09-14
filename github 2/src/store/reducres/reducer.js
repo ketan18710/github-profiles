@@ -79,7 +79,7 @@ const reducer = (state=initState,action) =>{
                 const searchFollowers=action.userData.items.map((items)=>items.followers_url)
                 const searchId=action.userData.items.map((items)=>items.id)
                 
-                if(action.data.total_count !== 0){
+                if(action.userData.total_count !== 0){
                     return{
                     ...state,
                     payload : "",
