@@ -28,7 +28,7 @@ function Users(props) {
         return rows
     }
     function row__column(data){
-        return <Grid.Column><User username={data.username} image={data.image}/></Grid.Column>
+        return <Grid.Column><User username={data.username} image={data.image} handleUsers={props.handleUsers}/></Grid.Column>
     }
     return (
         <div className="users">

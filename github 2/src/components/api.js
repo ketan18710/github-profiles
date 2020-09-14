@@ -26,7 +26,10 @@ function Api(props) {
 //     },1000)
    
 
-
+const handleUsers = (e) =>{
+    console.log(e.target.innerText)
+    props.fetchUserData(e.target.innerText)
+}
 
 
      
@@ -42,7 +45,7 @@ function Api(props) {
             <h3 style={{paddingLeft:"20em",fontFamily:"sans-serif",fontSize:"30px",color:"blueviolet"}}>{(props.message=="")&&props.payload}</h3>
             <h3>{props.message}</h3>
             
-            {(submitClicked && grabbedData ) && <Users />}
+            {(submitClicked && grabbedData ) && <Users handleUsers={handleUsers}/>}
            
         </div>
     )
