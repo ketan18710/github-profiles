@@ -40,8 +40,9 @@ function Api(props) {
 
 
      
-    const  {grabbedData} = props 
-    
+    const  {grabbedData,usernames} = props 
+    console.log(grabbedData,'grabbeddata')
+    console.log(usernames,'usernames')
    
     return (
         
