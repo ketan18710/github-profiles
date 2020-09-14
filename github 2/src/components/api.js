@@ -45,12 +45,15 @@ function Api(props) {
         
         <div>
             <ShowContext.Provider value={inputText}/>
+            <h3>{props.payload}</h3>
             <input ref={inputRef} type ="text" placeholder="enter github username"  onChange={handleUserName}/>
             <br/>
             <button type="submit" onClick={handleSubmit}>search</button>
+            
+            <h3>{props.message}</h3>
             {/* <h3>{usernames.length ===30 ? usernames.map((item,i)=><li ref={inputRef} onClick={handlePage} key={i}>{item}</li> ): null }</h3> */}
             {(submitClicked && grabbedData ) && <Users />}
-            {(submitClicked && grabbedData === false ) && <h4>No Data Found</h4>}
+            {/* {(submitClicked && grabbedData === false ) && <h4>No Data Found</h4>} */}
         </div>
     )
 }
@@ -64,7 +67,8 @@ const mapStateToProps = state => {
         followers: state.followers,
         message : state.message,
         grabbedData : state.grabbedData,
-        grabbedUserData : state.grabbedUserData
+        grabbedUserData : state.grabbedUserData,
+        payload : state.paylaod
     }
 };
 

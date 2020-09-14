@@ -2,14 +2,22 @@ import React,{useState,useEffect} from 'react'
 import {connect} from 'react-redux';
 import { Grid } from 'semantic-ui-react'
 import User from './User'
+import * as actionCreater from '../../store/actions/action'
 function Users(props) {
     console.log(props,'props')
     const [username, setUsername] = useState([])
     const [avatar, setAvatar] = useState([])
+    const [favoriteUser,setFavoriteUser] = useState([])
     useEffect(() => {
         setAvatar(props.users_avatar)
         setUsername(props.usernames)
     }, [props])
+
+    const handleFavoriteUser =()=>{
+        props.getFavoriteUser(props.usernames)
+        setFavoriteUser([...favoriteUser,props.usernames])
+    }
+    console.log(favoriteUser)
     function show_users(){
         var rows=[]
         for(var i =0;i<username.length;){
@@ -26,10 +34,11 @@ function Users(props) {
         return rows
     }
     function row__column(data){
-        return <Grid.Column><User username={data.username} image={data.image}/></Grid.Column>
+        return <Grid.Column><User username={data.username} image={data.image} handleFavoriteUser={handleFavoriteUser}/></Grid.Column>
     }
     return (
         <div className="users">
+            
             <Grid columns={3} divided>
                 {show_users()}
             </Grid>
@@ -41,8 +50,15 @@ const mapStateToProps = state => {
         usernames : state.usernames,
         id : state.id,
         users_avatar:state.users_avatar,
+        payload : state.payload
     }
 };
+const mapDispatchToProps = dispatch => {
+    return{
+      
+        getFavoriteUser:(username)=>dispatch(actionCreater.getFavoriteUser(username)),
+    }  
+    
+}
 
-const mapDispatchToProps = dispatch => null
 export default connect(mapStateToProps,mapDispatchToProps)(Users);
