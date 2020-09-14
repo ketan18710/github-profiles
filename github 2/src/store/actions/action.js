@@ -13,15 +13,30 @@ export const getUserData = () => {
     return async dispatch => {
         dispatch({type:"FETCHING_DATA",payload:"fetching........"})
         try{
-            //console.log(username)
-            const resp = await fetch(`https://api.github.com/search/users?q=type%3Auser&sort=repositories&order=desc&per_page=50`);
-            const data = await resp.json();
+       
+            const count = JSON.parse(sessionStorage.getItem("userData"))
             
-            dispatch({
-                type : "SUBMIT",
-               
-                data
-            })
+            if (count.incomplete_results!==true){
+                const resp = await fetch(`https://api.github.com/search/users?q=type%3Auser&sort=repositories&order=desc&per_page=50`);
+                const data = await resp.json();
+                console.log("i ma indian")
+                sessionStorage.setItem("userData",JSON.stringify(data))
+                dispatch({
+                    type : "SUBMIT",
+                   
+                    data
+                })
+            }else{
+                const data =JSON.parse(sessionStorage.getItem("userData"))
+                console.log("hello user",data)
+                dispatch({
+                    type : "SUBMIT",
+                   
+                    data
+                })
+            }
+                
+            
         }catch(er){
 
         }
