@@ -21,8 +21,15 @@ function ProfileInfo(props) {
         setStar_profile(!star_profile)
     }
     useEffect(() => {
-        
+        var favouriteUser = props.FavoriteUsers 
+        if(favouriteUser.hasOwnProperty(props.username)){
+            setStar_profile(true)
+        }else{
+            setStar_profile(false)
+        }
     }, [])
+    var {FavoriteUsers} = props.FavoriteUsers
+    console.log(FavoriteUsers)
     return (
         <div className="profileInfo">
             <Card>

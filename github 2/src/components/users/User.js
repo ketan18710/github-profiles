@@ -5,7 +5,7 @@ import './User.scss'
 function User(props) {
     return (
         <div className="user">
-                <Card>
+                {/* <Card>
                     <Card.Content>
                         <Image
                         floated='right'
@@ -28,7 +28,7 @@ function User(props) {
                         </Button>
                         </div>
                     </Card.Content>
-                </Card>
+                </Card> */}
                 <Card>
                 <Link to={'/profile?username='+props.username}>
                     <Card.Content>
