@@ -12,6 +12,7 @@ const initState ={
     userAvatar:"",
     userFollowers:"",
     FavoriteUsers:{},
+    FavoriteRepos:{},
     userGithub : "",
     userRepos : [],
     userBlog : "",
@@ -154,6 +155,21 @@ const reducer = (state=initState,action) =>{
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers
+                }
+            case "ADD_FAVORITE_REPO" :
+                console.log("user added as a favorite",action.username)
+                var favoriteRepos = state.FavoriteRepos
+                favoriteRepos[action.id] = action.data
+                return{
+                    ...state,
+                    favoriteRepos : favoriteRepos
+                }
+            case "REMOVE_FAVORITE_REPO" :
+                favoriteRepos = state.FavoriteRepos
+                delete favoriteRepos[action.id]
+                return{
+                    ...state,
+                    favoriteRepos : favoriteRepos
                 }
         default:
             return state;

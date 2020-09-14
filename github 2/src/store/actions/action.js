@@ -117,3 +117,22 @@ export const removeFavoriteUser =(username)=>{
         });
     }
 }
+export const addFavoriteRepo =(id,data)=>{
+    return dispatch => {
+        dispatch({
+            type : "ADD_FAVORITE_REPO",
+            id,
+            data
+        });
+    };
+    
+}
+
+export const removeFavoriteRepo =(id)=>{
+    return dispatch =>{
+        dispatch({
+            type : "REMOVE_FAVORITE_REPO",
+            id
+        });
+    }
+}

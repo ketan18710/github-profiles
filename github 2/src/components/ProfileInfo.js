@@ -21,18 +21,13 @@ function ProfileInfo(props) {
         setStar_profile(!star_profile)
     }
     useEffect(() => {
-        var favouriteUser = props.FavoriteUsers 
-        console.log(favouriteUser,'here1')
+        var favouriteUser = props.FavoriteUsers
         if(favouriteUser.hasOwnProperty(props.username)){
-            console.log(favouriteUser,'here2')
             setStar_profile(true)
         }else{
-            console.log(favouriteUser,'here3')
             setStar_profile(false)
         }
     }, [])
-    var {FavoriteUsers} = props.FavoriteUsers
-    console.log(FavoriteUsers,'fav_users')
     return (
         <div className="profileInfo">
             <Card>
@@ -45,7 +40,9 @@ function ProfileInfo(props) {
                 <Card.Description>
                     {props.bio ? props.bio : 'User has not written a bio'}
                     <div className="profileInfo__Icons">
-                        {star_profile ? <Icon className="profile_star" onClick={starClick} name="star "/> : <Icon className="profile_star" onClick={starClick} name="star outline"/>}
+                        <p onClick={starClick}>
+                            {star_profile ? <Icon className="profile_star" color="blue" name="star "/> : <Icon className="profile_star" name="star outline"/>}
+                        </p>
                         <Grid columns='equal'>
 
                             <Grid.Column width={3}>

@@ -34,6 +34,7 @@ const ShowProfiles = (props) => {
                     {(i<repos.length) && row__column({
                         repo_clone_url: repos[i].clone_url, 
                         repo_name: repos[i].name, 
+                        id: repos[i].id,
                         repo_url: repos[i].html_url,
                         description: repos[i].description,
                         forks_count : repos[i].forks_count
@@ -41,6 +42,7 @@ const ShowProfiles = (props) => {
                     {(i+1<repos.length) && row__column({
                         repo_clone_url: repos[i+1].clone_url, 
                         repo_name: repos[i+1].name, 
+                        id: repos[i+1].id,
                         repo_url: repos[i+1].html_url,
                         description: repos[i+1].description,
                         forks_count : repos[i+1].forks_count
@@ -48,6 +50,7 @@ const ShowProfiles = (props) => {
                     {(i+2<repos.length) && row__column({
                         repo_clone_url: repos[i+2].clone_url, 
                         repo_name: repos[i+2].name, 
+                        id: repos[i+2].id,
                         repo_url: repos[i+2].html_url,
                         description: repos[i+2].description,
                         forks_count : repos[i+2].forks_count
@@ -65,6 +68,7 @@ const ShowProfiles = (props) => {
                         resetInterval= {null}
                         repo_clone_url={data.repo_clone_url}
                         repo_name={data.repo_name}
+                        repo_id = {data.id}
                         repo_url={data.repo_url}
                         forks_count={data.forks_count}
                         description={data.description}
