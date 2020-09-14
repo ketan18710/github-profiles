@@ -14,9 +14,9 @@ export const getUserData = () => {
         dispatch({type:"FETCHING_DATA",payload:"fetching........"})
         try{
        
-            const count = JSON.parse(sessionStorage.getItem("userData"))
+            const sessionData = JSON.parse(sessionStorage.getItem("userData"))
             
-            if (count.incomplete_results!==true){
+            if (!sessionData){
                 const resp = await fetch(`https://api.github.com/search/users?q=type%3Auser&sort=repositories&order=desc&per_page=50`);
                 const data = await resp.json();
                 console.log("i ma indian")
