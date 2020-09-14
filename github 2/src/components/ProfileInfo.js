@@ -8,7 +8,7 @@ function ProfileInfo(props) {
         setStar_profile(!star_profile)
     }
     return (
-        <div>
+        <div className="profileInfo">
             <Card>
                 <Image src={props.img} wrapped ui={false} />
                 <Card.Content>

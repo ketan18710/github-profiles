@@ -25,7 +25,7 @@ function Repo(props) {
                             <Icon name="fork"/> {props.forks_count}   Forks
                         </span>
                         <span onClick={() => handleCopy()}>
-                            {isCopied === false ? <p><Icon name="clipboard"/> Click to copy repository clone link</p> : <p><Icon name="clipboard check"/>Copied to clipboard</p>}
+                            {isCopied === false ? <p><Icon name="clipboard"/> Click to copy repository clone link</p> : <p id="clipboard_check"><Icon name="clipboard check"/>Copied to clipboard</p>}
                         </span>
                     </Card.Meta>
                     <Card.Description>

@@ -2,7 +2,7 @@
     text-align: center;
     margin-top: 10px !important;
 }
-.ui.card {
+.profileInfo > .ui.card {
     margin: 1em 0;
     margin-left: 40% !important;
     width: 20% !important;
