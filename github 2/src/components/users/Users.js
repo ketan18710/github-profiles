@@ -28,7 +28,7 @@ function Users(props) {
         return rows
     }
     function row__column(data){
-        return <Grid.Column><User username={data.username} image={data.image} handleUsers={props.handleUsers}/></Grid.Column>
+        return <Grid.Column><User username={data.username} image={data.image} handleUsers={props.handleUsers} name={props.userName} followers={props.userFollowers} repos_no={props.userRepos_url} bio={props.userBio}/></Grid.Column>
     }
     return (
         <div className="users">
@@ -41,10 +41,16 @@ function Users(props) {
 }
 const mapStateToProps = state => {
     return{
+
+        userName:state.userName,
+        userFollowers:state.userFollowers,
+        userRepos_url:state.userRepos_url,
+        userBio:state.userBio,
         usernames : state.usernames,
         id : state.id,
         users_avatar:state.users_avatar,
-        payload : state.payload
+        payload : state.payload,
+        
     }
 };
 const mapDispatchToProps = dispatch => {
