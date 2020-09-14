@@ -2,11 +2,27 @@ import React, {useState,useEffect} from 'react'
 import { Card,Icon ,Image } from 'semantic-ui-react'
 import './ProfileInfo.scss'
 import { Grid, Segment } from 'semantic-ui-react'
+import {connect} from 'react-redux';
+import * as actionCreater from '../store/actions/action'
 function ProfileInfo(props) {
     const [star_profile, setStar_profile] = useState(false)
     function starClick(){
+        if(star_profile){
+            var data = {
+                name : props.name,
+                profile_url : props.profile_url,
+                avatar: props.img,
+                username: props.username
+            }
+            props.addFavoriteUser(props.username,data)
+        }else{
+            props.removeFavoriteUser(props.username)
+        }
         setStar_profile(!star_profile)
     }
+    useEffect(() => {
+        
+    }, [])
     return (
         <div className="profileInfo">
             <Card>
@@ -54,4 +70,19 @@ function ProfileInfo(props) {
     )
 }
 
-export default ProfileInfo
+const mapStateToProps = state => {
+    return{
+        FavoriteUsers : state.FavoriteUsers,
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return{
+        //changeUsername: e => dispatch(actionCreater.changeUsername(e)), 
+        addFavoriteUser:(username,data )=>dispatch(actionCreater.addFavoriteUser(username,data)),
+        removeFavoriteUser:( username)=>dispatch(actionCreater.removeFavoriteUser(username)),
+    }  
+    
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ProfileInfo);
+

@@ -8,8 +8,6 @@ import Repo from './Repo'
 const ShowProfiles = (props) => {
     // const [username, setUsername] = useState('')
     // const [repos, setRepos] = useState([])
-    const [count, setCount] = useState(0)
-    const [favoriteUser,setFavoriteUser] = useState([])
     
     useEffect(() => {
         const queryString = window.location.search;
@@ -24,12 +22,6 @@ const ShowProfiles = (props) => {
         // console.log(repos[1],'repos')
         
     },[])
-    const handleFavoriteUser =()=>{
-        props.getFavoriteUser(props.userLogin)
-        setFavoriteUser([...favoriteUser,props.userLogin])
-        
-
-    }
     console.log("congrats you are added as a favorite",props)
     const repos = props.userRepos
     console.log(repos[0],'repos[0]')
@@ -110,7 +102,6 @@ const mapDispatchToProps = dispatch => {
     return{
         fetchUserData:(login)=>dispatch(actionCreater.fetchUserData(login)),
         getUserRepos:(login)=>dispatch(actionCreater.getUserRepos(login)),
-        getFavoriteUser:(username)=>dispatch(actionCreater.getFavoriteUser(username)),
     }  
     
 }

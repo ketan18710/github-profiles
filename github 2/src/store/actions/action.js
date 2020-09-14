@@ -96,12 +96,13 @@ export const getUserRepos = (login) =>{
     }
 }
 
-export const getFavoriteUser =(username)=>{
+export const addFavoriteUser =(username,user)=>{
     console.log(username)
     return dispatch => {
         dispatch({
             type : "ADD_FAVORITE_USER",
-            username 
+            username,
+            user
         });
     };
     
