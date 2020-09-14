@@ -34,7 +34,7 @@ const reducer = (state=initState,action) =>{
                 usernames :currentUsername
              } 
         case "SUBMIT":
-            //console.log(action.data)
+            console.log(action.data)
             const usersLogin=action.data.items.map((items)=>items.login)
             const usersRepos=action.data.items.map((items)=>items.repos_url)
             const usersAvatar=action.data.items.map((items)=>items.avatar_url)

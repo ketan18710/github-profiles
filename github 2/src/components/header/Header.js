@@ -19,7 +19,7 @@ export const AddHeader = (props) => {
         </Menu.Item>
         
         <Menu.Item>
-               <SearchBar inputText={props.inputText} hanldeName={props.handleUserName} handleSubmit={props.handleSubmit} />             
+               <SearchBar inputText={props.inputText} handleName={props.handleUserName} handleSubmit={props.handleSubmit} />             
         </Menu.Item>
 
       </Menu>
