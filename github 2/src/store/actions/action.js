@@ -63,7 +63,7 @@ export const personalUserData=(login)=>{
 
 export const fetchUserData =(login) =>{
     return dispatch => {
-        dispatch({type:"FETCHING_DATA",payload:"fetching........"})
+        //dispatch({type:"FETCHING_DATA",payload:"fetching........"})
         axios.get(`https://api.github.com/users/${login}`)
         .then((response) => {
             const userData = response.data;

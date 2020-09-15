@@ -106,7 +106,7 @@ const reducer = (state=initState,action) =>{
 
                     }
             case "FETCH_USER":
-                //console.log(action.userData)
+                console.log(action.userData)
                 return{
                     ...state,
                     payload : "",
@@ -116,7 +116,6 @@ const reducer = (state=initState,action) =>{
                     userAvatar     :    action.userData.avatar_url,
                     userFollowers  :    action.userData.followers,
                     userFollowing  :    action.userData.following,
-                    userFavorite   :    "",
                     userGithub     :    action.userData.html_url,
                     userBlog       :    action.userData.blog,
                     userBio        :    action.userData.bio,
