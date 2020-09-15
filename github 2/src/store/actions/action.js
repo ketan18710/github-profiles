@@ -47,7 +47,7 @@ export const getUserData = () => {
 export const personalUserData=(login)=>{
     return dispatch => {
         dispatch({type:"FETCHING_DATA",payload:"fetching........"})
-        axios.get(`https://api.github.com/search/users?q=${login}+in:name&sort=repositories&order=desc`)
+        axios.get(`https://api.github.com/search/users?q=${login}+in:login&sort=repositories&order=desc`)
         .then((response) => {
             const userData = response.data;
             dispatch({

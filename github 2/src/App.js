@@ -3,7 +3,7 @@ import './App.scss';
 import 'semantic-ui-css/semantic.min.css';
 import Api from './components/api';
 import {AddHeader} from './components/header/Header'
-import Users from './components/users/Users'
+import SearchUsers from './components/users/SearchUsers'
 import ShowProfiles from './components/ShowProfiles'
 import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
 import {
@@ -36,6 +36,10 @@ function App() {
           <Route path="/favouriteRepos">
             <AddHeader/>
             <FavouriteRepos />
+          </Route>
+          <Route path="/search">
+            <AddHeader/>
+            <SearchUsers />
           </Route>
         </Switch>
       </Router>

@@ -22,9 +22,9 @@ export const AddHeader = () => {
           
         </Menu.Item>
         
-        {/* <Menu.Item>
+        <Menu.Item>
                <SearchBar/>             
-        </Menu.Item> */}
+        </Menu.Item>
 
         <Menu.Item>
            <Link to="/favouriteUsers">Favourite Users</Link>

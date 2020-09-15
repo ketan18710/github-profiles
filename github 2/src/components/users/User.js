@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import { Card, Feed, Button ,Icon} from 'semantic-ui-react'
+import { Card, Feed, Button,Image ,Icon} from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 import './User.scss'
 import {connect} from 'react-redux';
@@ -33,28 +33,15 @@ function User(props) {
     return (
         <div className="user">
             <Card>
+                <Image src={props.image} wrapped ui={false} />
                 <Card.Content>
-                    <Feed>
-                        <Feed.Event>
-                        
-                        <Feed.Label className="user__image" image={props.image} />
-                        <Feed.Content>
-                            <Feed.Summary>
-                                <h5  onMouseOver={props.handleUsers}>Login Name :{props.username}</h5>
-                                <p1> Name        :  {props.name} </p1><br/>
-                                <p1> Public Repos : {props.repos_no} </p1><br/>
-                                <p1> Bio         :  {props.bio} </p1><br/>
-                                <p1> Followers   :  {props.followers} </p1><br/>
-                            </Feed.Summary>
-                        </Feed.Content>
-                        </Feed.Event>
-                    </Feed>
+                <Card.Header>{props.username}</Card.Header>
                 </Card.Content>
                 <Card.Content extra>
                     <div className='ui two buttons'>
                     <Button basic color='green'>
                         <Link  to={'/profile?username='+props.username}>
-                            Show Repositories
+                            View Profile
                         </Link>
                     </Button>
                     <Button onClick={starClick} basic color='red'>

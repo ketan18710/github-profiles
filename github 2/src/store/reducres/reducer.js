@@ -13,6 +13,7 @@ const initState ={
     userFollowers:"",
     FavoriteUsers:  sessionStorage.getItem("favorite users") ?JSON.parse(sessionStorage.getItem("favorite users")) : {},
     FavoriteRepos: sessionStorage.getItem("favorite repos") ? JSON.parse(sessionStorage.getItem("favorite repos")) : {},
+    searchResult: {},
     userGithub : "",
     userRepos : [],
     userBlog : "",
@@ -73,24 +74,11 @@ const reducer = (state=initState,action) =>{
                     }
                    
             case "SEARCH_DATA":
-           
-                const searchLogin=action.userData.items.map((items)=>items.login)
-                const searchRepos=action.userData.items.map((items)=>items.repos_url)
-                const searchAvatar=action.userData.items.map((items)=>items.avatar_url)
-                const searchFollowers=action.userData.items.map((items)=>items.followers_url)
-                const searchId=action.userData.items.map((items)=>items.id)
-                
+                console.log(action.userData,'data')
                 if(action.userData.total_count !== 0){
                     return{
-                    ...state,
-                    payload : "",
-                    usernames : searchLogin,
-                    repos : searchRepos,
-                    id : searchId,
-                    followers : searchFollowers,
-                    users_avatar : searchAvatar,
-                    grabbedData : true
-
+                        ...state,
+                        searchResult : action.userData.items
                     }
                 }else{
                         return {
