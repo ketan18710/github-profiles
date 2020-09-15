@@ -2,6 +2,8 @@
     padding : 10px !important;
     box-shadow: 5px 5px 5px lightgrey !important;
     border: none  !important;
+    width : 100% !important;
+    background-image: linear-gradient(to right , lightblue , white) !important;
 }
 
 .menuItem-1 .m-h3 {
@@ -9,4 +11,19 @@
     opacity: 70%  !important;
     font-size: 20px  !important;
     letter-spacing: 1px  !important;
+    color : rgb(61, 141, 137) !important;
+    text-shadow: 2px 2px 5px rgb(114, 112, 112) !important;
+}
+
+h3 {
+    color : rgb(85, 182, 114) !important;
+    opacity: 70%  !important;
+    padding-bottom: 5px !important;
+    text-shadow: 2px 2px 5px rgb(114, 112, 112) !important;
+    
+}
+h3:hover {
+    color:rgb(41, 16, 31) !important;
+    text-shadow: 5px 5px 5px grey !important;
+    transition: 100ms;
 }

@@ -10,27 +10,23 @@ export const AddHeader = () => {
     return (
         <>
       <Menu  className="menu-head" pointing secondary>
-        <Menu.Item>
-           <Link to="/">Home</Link>
+        <Menu.Item position='left'>
+           <Link to="/"><h3 style={{paddingBottom:"5px",color:"lightgrey"}}>Home</h3></Link>
         </Menu.Item>
-        <Menu.Item className="menuItem-1">
-          
-            <h3 className="m-h3" style={{}}>
+        <Menu.Item className="menuItem-1" position='left'>
+            <h2 className="m-h3" >
               User Github Repositories
-
-            </h3>
-          
+            </h2>
         </Menu.Item>
         
-        <Menu.Item>
+        <Menu.Item position='right'>
+           <Link to="/favouriteUsers"><h3 >Favourite Users</h3></Link>
+        </Menu.Item>
+        <Menu.Item position='right'>
+           <Link to="/favouriteRepos"><h3>Favourite Repos</h3></Link>
+        </Menu.Item>
+        <Menu.Item  position='right'>
                <SearchBar/>             
-        </Menu.Item>
-
-        <Menu.Item>
-           <Link to="/favouriteUsers">Favourite Users</Link>
-        </Menu.Item>
-        <Menu.Item>
-           <Link to="/favouriteRepos">Favourite Repos</Link>
         </Menu.Item>
       </Menu>
             

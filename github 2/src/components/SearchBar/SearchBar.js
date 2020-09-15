@@ -23,9 +23,9 @@ const SearchBar = (props) => {
     return (
         <div>
             
-              <Input icon='search' placeholder='Search...' onChange={handleUserName} />
+              <Input icon='search' placeholder='Search...' onChange={handleUserName}  class="search-input"/>
               <Link to="/search">
-                <Button disabled={!inputText} onClick={handleSubmit} primary>Search</Button>
+                <Button disabled={!inputText} onClick={handleSubmit} primary class="search button">Search</Button>
               </Link>
         </div>
     )

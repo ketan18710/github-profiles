@@ -6,26 +6,24 @@ import { Grid } from 'semantic-ui-react'
 import ProfileInfo from './ProfileInfo'
 import Repo from './Repo'
 const ShowProfiles = (props) => {
-    // const [username, setUsername] = useState('')
-    // const [repos, setRepos] = useState([])
+    
     
     useEffect(() => {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const username = urlParams.get('username')
-        // setUsername(user)
+        
+        console.log("this is my user",username)
         props.fetchUserData(username)
         props.getUserRepos(username)
         
-        
-        // setRepos(props.userRepos)
-        // console.log(repos[1],'repos')
+       
         
     },[])
-    console.log("congrats you are added as a favorite",props)
+    
     const repos = props.userRepos
-    console.log(repos[0],'repos[0]')
-    const listRepos = repos.length !==0 && (repos.map((item)=><li key={item.id}>{item.name}</li>) )
+   
+    //const listRepos = repos.length !==0 && (repos.map((item)=><li key={item.id}>{item.name}</li>) )
     function show_repos(){
         var rows=[]
         for(var i =0;i<repos.length;){

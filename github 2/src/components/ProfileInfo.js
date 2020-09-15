@@ -45,6 +45,7 @@ function ProfileInfo(props) {
                         <p onClick={starClick}>
                             {star_profile ? <Icon className="profile_star" color="blue" name="star "/> : <Icon className="profile_star" name="star outline"/>}
                         </p>
+                        <h3>Total Repositories : {props.userRepos_url}</h3>
                         <Grid columns='equal'>
 
                             <Grid.Column width={3}>
@@ -82,7 +83,8 @@ function ProfileInfo(props) {
 const mapStateToProps = state => {
     return{
         FavoriteUsers : state.FavoriteUsers,
-        profile_url : state.userGithub
+        profile_url : state.userGithub,
+        userRepos_url : state.userRepos_url
     }
 };
 

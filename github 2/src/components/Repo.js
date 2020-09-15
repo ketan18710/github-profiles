@@ -37,9 +37,9 @@ function Repo(props) {
         setStar_profile(!star_profile)
     }
     useEffect(() => {
-        console.log(props.repo_id,'repo_id')
+        //console.log(props.repo_id,'repo_id')
         var favouriteRepos = props.FavoriteRepos
-        console.log(favouriteRepos,'fav_repos')
+        //console.log(favouriteRepos,'fav_repos')
         if(favouriteRepos.hasOwnProperty(props.repo_id)){
             setStar_profile(true)
         }else{
