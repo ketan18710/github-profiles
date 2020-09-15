@@ -11,8 +11,8 @@ const initState ={
     userRepos_url:"",
     userAvatar:"",
     userFollowers:"",
-    FavoriteUsers:{},
-    FavoriteRepos:{},
+    FavoriteUsers:  sessionStorage.getItem("favorite users") ? sessionStorage.getItem("favorite users") : {},
+    FavoriteRepos: sessionStorage.getItem("favorite repos") ? sessionStorage.getItem("favorite repos") : {},
     userGithub : "",
     userRepos : [],
     userBlog : "",
@@ -138,38 +138,37 @@ const reducer = (state=initState,action) =>{
                     message : ""
                 }
             case "ADD_FAVORITE_USER" :
-                console.log("user added as a favorite",action.username)
+                
                 var favoriteUsers = state.FavoriteUsers
                 favoriteUsers[action.username] = action.user
-                console.log(favoriteUsers,'favouriteUSerssss')
+                sessionStorage.setItem("favorite users",JSON.stringify(favoriteUsers))
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers
                 }
-            case "REMOVE_FAVORITE_USER" :
-                console.log("user to be reomved",action.username)
-                console.log('state.FavoriteUsers_remove',state.FavoriteUsers)
+                case "REMOVE_FAVORITE_USER" :
+                    
                 favoriteUsers = state.FavoriteUsers
                 delete favoriteUsers[action.username]
-                console.log(favoriteUsers,'favouriteUserzzz')
+                sessionStorage.setItem("favorite users",JSON.stringify(favoriteUsers))
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers
                 }
             case "ADD_FAVORITE_REPO" :
-                console.log("user added as a favorite",action.username)
+                console.log("user added as a favorite",action.id)
                 var favoriteRepos = state.FavoriteRepos
                 favoriteRepos[action.id] = action.data
                 return{
                     ...state,
-                    favoriteRepos : favoriteRepos
+                    FavoriteRepos : favoriteRepos
                 }
             case "REMOVE_FAVORITE_REPO" :
                 favoriteRepos = state.FavoriteRepos
                 delete favoriteRepos[action.id]
                 return{
                     ...state,
-                    favoriteRepos : favoriteRepos
+                    FavoriteRepos : favoriteRepos
                 }
         default:
             return state;

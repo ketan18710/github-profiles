@@ -30,14 +30,17 @@ function Repo(props) {
                 repo_id : props.repo_id,
             }
             props.addFavoriteRepo(props.repo_id,data)
+            console.log(props.FavoriteRepos,'FavoriteRepos')
         }else{
-            props.removeFavoriteRepo(props.username)
+            props.removeFavoriteRepo(props.repo_id)
         }
         setStar_profile(!star_profile)
     }
     useEffect(() => {
-        var favouriteUser = props.FavoriteUsers
-        if(favouriteUser.hasOwnProperty(props.username)){
+        console.log(props.repo_id,'repo_id')
+        var favouriteRepos = props.FavoriteRepos
+        console.log(favouriteRepos,'fav_repos')
+        if(favouriteRepos.hasOwnProperty(props.repo_id)){
             setStar_profile(true)
         }else{
             setStar_profile(false)
@@ -55,9 +58,9 @@ function Repo(props) {
                         <span onClick={() => handleCopy()}>
                             {isCopied === false ? <p><Icon name="clipboard"/> Click to copy repository clone link</p> : <p id="clipboard_check"><Icon name="clipboard check"/>Copied to clipboard</p>}
                         </span>
-                        <p onClick={starClick}>
+                        <span onClick={()=>starClick()}>
                             {star_profile ? <Icon className="profile_star" color="blue" name="star "/> : <Icon className="profile_star" name="star outline"/>}
-                        </p>
+                        </span>
                     </Card.Meta>
                     <Card.Description>
                         {props.description ? props.description : <p>description not provided</p>}
