@@ -77,6 +77,7 @@ const ShowProfiles = (props) => {
     }
     return (
         <div className="showProfile">
+            {console.log('login:',props.userLogin)}
             <ProfileInfo name={props.userName}  followers={props.userFollowers} following={props.userFollowing} username={props.userLogin} img={props.userAvatar} bio={props.userBio} userRepos={props.userRepos_url}/>
             <Grid columns={3} divided>  
                 {show_repos()}

@@ -45,7 +45,20 @@ function Repo(props) {
         }else{
             setStar_profile(false)
         }
-    }, [])
+    }, [props.repo_id,props.FavoriteRepos])
+    function text_truncate(str, length, ending) {
+        if (length == null) {
+          length = 100;
+        }
+        if (ending == null) {
+          ending = '...';
+        }
+        if (str.length > length) {
+          return str.substring(0, length - ending.length) + ending;
+        } else {
+          return str;
+        }
+    };
     return (
         <div className="repo">
             <Card >
@@ -63,7 +76,7 @@ function Repo(props) {
                         </span>
                     </Card.Meta>
                     <Card.Description>
-                        {props.description ? props.description : <p>description not provided</p>}
+                        {props.description ? text_truncate(props.description,50,'...') : <p>description not provided</p>}
                     </Card.Description>
                 </Card.Content>
             </Card>

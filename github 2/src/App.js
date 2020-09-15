@@ -11,7 +11,8 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import User from './components/users/User';
+import FavouriteUsers from './components/favourites/FavouriteUsers'
+import FavouriteRepos from './components/favourites/FavouriteRepos'
 
 function App() {
 
@@ -25,7 +26,16 @@ function App() {
             <Api/>
           </Route>
           <Route path="/profile">
+            <AddHeader/>
             <ShowProfiles />
+          </Route>
+          <Route path="/favouriteUsers">
+            <AddHeader/>
+            <FavouriteUsers />
+          </Route>
+          <Route path="/favouriteRepos">
+            <AddHeader/>
+            <FavouriteRepos />
           </Route>
         </Switch>
       </Router>

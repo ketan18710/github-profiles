@@ -23,11 +23,13 @@ function ProfileInfo(props) {
     useEffect(() => {
         var favouriteUser = props.FavoriteUsers
         if(favouriteUser.hasOwnProperty(props.username)){
+            console.log('yes')
             setStar_profile(true)
         }else{
+            console.log('no')
             setStar_profile(false)
         }
-    }, [])
+    }, [props.username,props.FavoriteUsers])
     return (
         <div className="profileInfo">
             <Card>

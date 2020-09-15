@@ -11,8 +11,8 @@ const initState ={
     userRepos_url:"",
     userAvatar:"",
     userFollowers:"",
-    FavoriteUsers:  sessionStorage.getItem("favorite users") ? sessionStorage.getItem("favorite users") : {},
-    FavoriteRepos: sessionStorage.getItem("favorite repos") ? sessionStorage.getItem("favorite repos") : {},
+    FavoriteUsers:  sessionStorage.getItem("favorite users") ?JSON.parse(sessionStorage.getItem("favorite users")) : {},
+    FavoriteRepos: sessionStorage.getItem("favorite repos") ? JSON.parse(sessionStorage.getItem("favorite repos")) : {},
     userGithub : "",
     userRepos : [],
     userBlog : "",
@@ -139,25 +139,28 @@ const reducer = (state=initState,action) =>{
             case "ADD_FAVORITE_USER" :
                 
                 var favoriteUsers = state.FavoriteUsers
+                console.log('prev_list',favoriteUsers)
                 favoriteUsers[action.username] = action.user
                 sessionStorage.setItem("favorite users",JSON.stringify(favoriteUsers))
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers
                 }
-                case "REMOVE_FAVORITE_USER" :
+                break
+            case "REMOVE_FAVORITE_USER" :
                     
                 favoriteUsers = state.FavoriteUsers
                 delete favoriteUsers[action.username]
-                sessionStorage.setItem("favorite users",JSON.stringify(favoriteUsers))
+                sessionStorage.setItem("favorite repos",JSON.stringify(favoriteRepos))
                 return{
                     ...state,
                     FavoriteUsers : favoriteUsers
                 }
+                break;
             case "ADD_FAVORITE_REPO" :
-                console.log("user added as a favorite",action.id)
                 var favoriteRepos = state.FavoriteRepos
                 favoriteRepos[action.id] = action.data
+                sessionStorage.setItem("favorite repos",JSON.stringify(favoriteRepos))
                 return{
                     ...state,
                     FavoriteRepos : favoriteRepos
