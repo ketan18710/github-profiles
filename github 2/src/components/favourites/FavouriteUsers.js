@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import FavouriteUser from './FavouriteUser'
 import { Grid } from 'semantic-ui-react'
 import {connect} from 'react-redux';
+import './Favourites.scss'
 function FavouriteUsers(props) {
     const [users, setUsers] = useState('')
     useEffect(() => {

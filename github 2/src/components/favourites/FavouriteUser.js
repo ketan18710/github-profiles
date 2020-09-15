@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react'
 function FavouriteUser(props) {
     return (
         <div>
-            <Card>
+            <Card className="favouriteUser_card">
                 <Image src={props.img} wrapped ui={false} />
                 <Card.Content>
                     <Card.Header><a target="_blank" rel="noopener noreferrer"  href={props.profile_link}>{props.name}</a></Card.Header>
