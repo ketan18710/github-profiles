@@ -28,7 +28,7 @@ function Api(props) {
 
 const handleUsers = (e) =>{
     console.log(e.target.innerText)
-    props.fetchUserData(e.target.innerText)
+    props.fetchUserData(e,e.target.innerText)
 }
 
 
@@ -69,7 +69,7 @@ const mapDispatchToProps = dispatch => {
     return{
         //changeUsername: e => dispatch(actionCreater.changeUsername(e)), 
         getUserData:( )=>dispatch(actionCreater.getUserData()),
-        fetchUserData:( login)=>dispatch(actionCreater.fetchUserData(login)),
+        fetchUserData:(e, login)=>dispatch(actionCreater.fetchUserData(e,login)),
         personalUserData:(login) => dispatch(actionCreater.personalUserData(login)) 
     }  
     

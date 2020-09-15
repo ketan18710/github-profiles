@@ -38,7 +38,7 @@ function User(props) {
                             <Feed.Label className="user__image" image={props.image} />
                             <Feed.Content>
                                 <Feed.Summary>
-                                    <h5  onMouseOver={props.handleUsers}>Login Name :{props.username}</h5>
+                                    <h5  onMouseOver={props.handleUsers}>{props.username}</h5>
                                     <p1> Name        :  {props.name} </p1><br/>
                                     <p1> Public Repos : {props.repos_no} </p1><br/>
                                     <p1> Bio         :  {props.bio} </p1><br/>

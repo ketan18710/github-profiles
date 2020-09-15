@@ -61,8 +61,9 @@ export const personalUserData=(login)=>{
     }
 }
 
-export const fetchUserData =(login) =>{
+export const fetchUserData =(e,login) =>{
     return dispatch => {
+        //e.persist();
         //dispatch({type:"FETCHING_DATA",payload:"fetching........"})
         axios.get(`https://api.github.com/users/${login}`)
         .then((response) => {
